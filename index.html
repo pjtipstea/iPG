@@ -11,20 +11,22 @@
 <script type="text/javascript">
 var timer = 15;
 var randomizeQuestions = true;
+var currentQuestionIndex = 0;
 
 // Function to randomize questions if enabled
 function initializeQuestions() {
+    currentQuestionIndex = 0;
     if (randomizeQuestions) {
         q.sort(function() { return 0.5 - Math.random(); });
         tips.sort(function() { return 0.5 - Math.random(); });
     }
     q.push('done');
+    next_q();
 }
 
-initializeQuestions();
-
+// Call initializeQuestions on page load
 $(document).ready(function(){
-    next_q();
+    initializeQuestions();
     timer_tick();
     display_tip();
 });
@@ -49,7 +51,20 @@ $(document).keypress(function(e) {
 // Function to toggle randomization
 function toggleRandomization() {
     randomizeQuestions = !randomizeQuestions;
-    alert("Randomization is now " + (randomizeQuestions ? "enabled" : "disabled") + ". Refresh the page to apply changes.");
+    alert("Randomization is now " + (randomizeQuestions ? "enabled" : "disabled") + ". Reinitializing questions.");
+    q.pop(); // Remove 'done' before reinitializing
+    initializeQuestions();
+}
+
+// Modified next_q function to handle questions display
+function next_q() {
+    if (currentQuestionIndex < q.length - 1) {
+        $('#question').html(q[currentQuestionIndex]);
+        currentQuestionIndex++;
+    } else {
+        $('#question').html('&nbsp;');
+        $('#end').removeClass('hide');
+    }
 }
 </script>
 
