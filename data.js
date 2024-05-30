@@ -163,7 +163,21 @@ var q = [
     'How will you handle potential resistance from traditional educational institutions or educators?',
     'What impact has your partnership with UCL had on your product development and credibility?',
     'How do you ensure data privacy and security for your users, especially minors?',
-    'What contingency plans do you have in place if you face regulatory challenges in different markets?'
+    'What contingency plans do you have in place if you face regulatory challenges in different markets?',
+	"What differentiates learning on ChatGPT with learning on Medly?",
+	"What's the difference between ChatGPT and Medly?",
+	"What is the architecture behind Medly?",
+	"What differentiates Medly from Khanmigo?",
+	"Is your data proprietary?",
+	"What about GPT-4o vision?",
+	"Isn't Medly just prompt engineering?",
+	"What about GPTs (Khanmigo as a GPT)",
+	"Does Medly hallucinate? How much does it hallucinate?",
+	"How do you achieve memory?",
+	"How does Medly adapt over time?",
+	"How quickly/easily could a competitor recreate Medly?",
+	"What is your competitive moat?",
+	"What teaching theory is Medly based on?"	
 ];
 
 // Tips
