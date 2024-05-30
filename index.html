@@ -42,7 +42,7 @@ $(document).keypress(function(e) {
             timer_restart();
             break;
         case 110:
-            // Doesn't Do Anything, Move Along
+            // Easter Egg
             $('body').append('<div class="egg"><iframe width="420" height="315" src="http://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1" frameborder="0" allowfullscreen></iframe></div>');
             break;
     }
@@ -54,6 +54,15 @@ function toggleRandomization() {
     alert("Randomization is now " + (randomizeQuestions ? "enabled" : "disabled") + ". Reinitializing questions.");
     q.pop(); // Remove 'done' before reinitializing
     initializeQuestions();
+}
+
+// New function to start from the top
+function startFromTop() {
+    randomizeQuestions = false;
+    currentQuestionIndex = 0;
+    q.pop(); // Remove 'done'
+    initializeQuestions();
+    alert("Starting from the first question without randomization.");
 }
 
 // Modified next_q function to handle questions display
@@ -110,6 +119,11 @@ function next_q() {
 <!-- Button to Toggle Randomization -->
 <div class="toggle">
     <button onclick="toggleRandomization()">Toggle Randomization</button>
+</div>
+
+<!-- Button to Start from Top -->
+<div class="start-top">
+    <button onclick="startFromTop()">Start from Top</button>
 </div>
 
 <!-- Footer -->
